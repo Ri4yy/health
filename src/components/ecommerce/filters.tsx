@@ -86,22 +86,6 @@ export const Filters: React.FC<FiltersProps> = ({
         )}
       </div>
 
-      {/* Sort */}
-      <div>
-        <h4 className="text-sm font-semibold text-[var(--color-neutral-900)] mb-3">Сортировка</h4>
-        <RadioGroup
-          name="sort"
-          value={sortBy}
-          onChange={setSortBy}
-          options={[
-            { value: 'popular', label: 'Популярные' },
-            { value: 'price-asc', label: 'Сначала дешевле' },
-            { value: 'price-desc', label: 'Сначала дороже' },
-            { value: 'rating', label: 'По рейтингу' },
-          ]}
-        />
-      </div>
-
       {/* Price Range */}
       <div>
         <h4 className="text-sm font-semibold text-[var(--color-neutral-900)] mb-3">Цена</h4>

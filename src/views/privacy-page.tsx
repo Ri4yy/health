@@ -80,7 +80,7 @@ export const PrivacyPage: React.FC = () => {
               
               <p className="text-lg text-[var(--color-neutral-600)] mb-6">
                 Настоящая Политика конфиденциальности регулирует порядок обработки и защиты 
-                персональных данных пользователей сервиса ЭкоЕда.
+                персональных данных пользователей сервиса Точка Баланса.
               </p>
 
               <p className="text-sm text-[var(--color-neutral-600)]">
@@ -134,7 +134,7 @@ export const PrivacyPage: React.FC = () => {
                       <div className="space-y-4 text-[var(--color-neutral-700)]">
                         <p>
                           1.1. Настоящая Политика конфиденциальности (далее — Политика) действует в отношении 
-                          всей информации, которую ООО «ЭкоЕда» (далее — Оператор) может получить о Пользователе 
+                          всей информации, которую ООО «Точка Баланса» (далее — Оператор) может получить о Пользователе 
                           во время использования сайта ecoeda.ru и его сервисов.
                         </p>
                         
@@ -439,7 +439,7 @@ export const PrivacyPage: React.FC = () => {
                         </p>
                         
                         <div className="p-6 bg-[var(--color-neutral-50)] rounded-[12px]">
-                          <h4 className="mb-4 text-[var(--color-neutral-900)]">ООО «ЭкоЕда»</h4>
+                          <h4 className="mb-4 text-[var(--color-neutral-900)]">ООО «Точка Баланса»</h4>
                           <div className="space-y-2 text-sm">
                             <p><strong>Адрес:</strong> 123456, г. Чебоксары, ул. Зелёная, д. 7, офис 42</p>
                             <p><strong>ИНН:</strong> 1234567890</p>

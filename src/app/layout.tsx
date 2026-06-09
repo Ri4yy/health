@@ -1,7 +1,7 @@
 import '../styles/index.css';
 
 export const metadata = {
-  title: 'ЭкоЕда',
+  title: 'Точка Баланса',
   description: 'Доставка здорового питания',
 };
 

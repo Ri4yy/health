@@ -1,7 +1,7 @@
 import { FavoritesPage } from '../../views/favorites-page';
 
 export const metadata = {
-  title: 'Избранное | ЭкоЕда',
+  title: 'Избранное | Точка Баланса',
   description: 'Ваш список избранных блюд и наборов для здорового питания.',
 };
 

@@ -118,7 +118,7 @@ export const LoyaltyPage: React.FC<any> = ({ initialUser, initialProfile, initia
             <div className="max-w-[900px] mx-auto text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-primary-300)] backdrop-blur-sm rounded-full mb-6">
                 <Sparkles className="w-4 h-4" />
-                <span className="text-sm font-medium">Программа лояльности ЭкоЕда</span>
+                <span className="text-sm font-medium">Программа лояльности Точка Баланса</span>
               </div>
               
               <h1 className="text-white mb-6">

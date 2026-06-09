@@ -100,8 +100,8 @@ export const ContactsPage: React.FC = () => {
             <InfoCard
               icon={<Mail className="w-6 h-6 text-[var(--color-primary-600)]" />}
               title="Email"
-              value="test@mail.ru"
-              link="mailto:"
+              value="info@tochkabalansa.ru"
+              link="mailto:info@tochkabalansa.ru"
             />
             <InfoCard
               icon={<Clock className="w-6 h-6 text-[var(--color-primary-600)]" />}

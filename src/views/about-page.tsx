@@ -94,7 +94,7 @@ export const AboutPage: React.FC = () => {
           <div className="container py-12 lg:py-20">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl lg:text-5xl font-bold text-[var(--color-neutral-900)] mb-6">
-                О компании ЭкоЕда
+                О компании Точка Баланса
               </h1>
               <p className="text-lg lg:text-xl text-[var(--color-neutral-700)] leading-relaxed">
                 Мы помогаем людям питаться правильно, вкусно и без лишних усилий. Наша миссия —

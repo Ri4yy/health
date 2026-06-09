@@ -23,9 +23,6 @@ export const AiRecommendationPage: React.FC = () => {
     diets: [] as string[],
     dislikedProducts: '',
     budget: '',
-    days: '5',
-    mealsPerDay: '4',
-    deliveryTime: '',
   });
 
   const [recommendations, setRecommendations] = useState<any[]>([]);
@@ -51,7 +48,13 @@ export const AiRecommendationPage: React.FC = () => {
     'Мёд',
   ];
 
-  const dietsList = ['Веганская', 'Вегетарианская', 'Кето', 'Палео', 'Низкоуглеводная'];
+  const dietsList = [
+    { id: 'vegan', label: 'Веганское' },
+    { id: 'keto', label: 'Кето' },
+    { id: 'gluten-free', label: 'Без глютена' },
+    { id: 'no-sugar', label: 'Без сахара' },
+    { id: 'lactose-free', label: 'Без лактозы' },
+  ];
 
   const handleAllergenToggle = (allergen: string) => {
     setFormData((prev) => ({
@@ -106,10 +109,24 @@ export const AiRecommendationPage: React.FC = () => {
         });
       }
 
+      if (formData.budget) {
+        filtered = filtered.filter(p => {
+          let price = p.product_variants?.[0]?.price || 0;
+          if (p.product_type === 'set' && p.product_variants) {
+             const v = p.product_variants.find((v: any) => v.days_count === 1 || String(v.label).includes('1'));
+             if (v) price = v.price;
+          }
+          if (formData.budget === 'economy') return price < 800;
+          if (formData.budget === 'standard') return price >= 800 && price <= 1200;
+          if (formData.budget === 'premium') return price > 1200;
+          return true;
+        });
+      }
+
       const formatted = filtered.slice(0, 4).map(p => {
         let defaultVariant = p.product_variants?.[0];
         if (p.product_type === 'set' && p.product_variants) {
-          defaultVariant = p.product_variants.find((v: any) => v.days_count === Number(formData.days) || String(v.label).includes(formData.days)) || p.product_variants[0];
+          defaultVariant = p.product_variants.find((v: any) => v.days_count === 1 || String(v.label).includes('1')) || p.product_variants[0];
         }
         
         const whyFits = [
@@ -173,82 +190,11 @@ export const AiRecommendationPage: React.FC = () => {
     addToast('success', 'Подборка сохранена в избранное');
   };
 
-  const mockRecommendations = [
-    {
-      id: '1',
-      name: 'Набор "Детокс неделя"',
-      image: 'https://images.unsplash.com/photo-1752095809269-ac13b5c9db8f?w=800',
-      description: 'Лёгкий рацион с акцентом на овощи и зелень',
-      price: 3500,
-      oldPrice: 4200,
-      calories: 1400,
-      protein: 80,
-      badges: [
-        { type: 'vegan', label: 'Веган' },
-        { type: 'discount', label: 'Скидка' },
-      ],
-      whyFits: [
-        'Соответствует вашей цели похудения',
-        'Калорийность 1400 ккал идеальна для дефицита',
-        'Веганский рацион без аллергенов',
-        'Много клетчатки для очищения',
-      ],
-    },
-    {
-      id: '2',
-      name: 'Смузи-боул с ягодами',
-      image: 'https://images.unsplash.com/photo-1642339800099-921df1a0a958?w=800',
-      description: 'Освежающий завтрак с антиоксидантами',
-      price: 390,
-      calories: 320,
-      protein: 10,
-      badges: [{ type: 'vegan', label: 'Веган' }],
-      whyFits: [
-        'Богат антиоксидантами',
-        'Низкокалорийный вариант завтрака',
-        'Подходит для веганов',
-      ],
-    },
-    {
-      id: '3',
-      name: 'Салат с киноа и овощами',
-      image: 'https://images.unsplash.com/photo-1666819691716-827f78d892f3?w=800',
-      description: 'Полноценный обед с растительным белком',
-      price: 450,
-      calories: 420,
-      protein: 15,
-      badges: [{ type: 'vegan', label: 'Веган' }],
-      whyFits: [
-        'Высокое содержание белка',
-        'Сбалансированный состав КБЖУ',
-        'Без глютена и лактозы',
-      ],
-    },
-    {
-      id: '4',
-      name: 'Овощной суп-пюре',
-      image: 'https://images.unsplash.com/photo-1760462721301-5e02faf16e94?w=800',
-      description: 'Лёгкий ужин с овощами',
-      price: 380,
-      calories: 280,
-      protein: 8,
-      badges: [{ type: 'vegan', label: 'Веган' }],
-      whyFits: [
-        'Лёгкий вечерний приём пищи',
-        'Низкокалорийный вариант',
-        'Легко усваивается',
-      ],
-    },
-  ];
+
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--color-bg-milk)]">
-      <Header
-        cartItemsCount={cartItems.length}
-        favoritesCount={5}
-        isLoggedIn={true}
-        userName="Анна"
-      />
+      <Header />
 
       <main className="flex-1">
         {/* Hero */}
@@ -258,7 +204,7 @@ export const AiRecommendationPage: React.FC = () => {
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full mb-6">
                 <Sparkles className="w-5 h-5 text-[var(--color-primary-600)]" />
                 <span className="text-sm font-semibold text-[var(--color-primary-700)]">
-                  Умный подбор
+                  Подбор
                 </span>
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold text-[var(--color-neutral-900)] mb-4">
@@ -328,10 +274,10 @@ export const AiRecommendationPage: React.FC = () => {
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {dietsList.map((diet) => (
                           <Checkbox
-                            key={diet}
-                            label={diet}
-                            checked={formData.diets.includes(diet)}
-                            onChange={() => handleDietToggle(diet)}
+                            key={diet.id}
+                            label={diet.label}
+                            checked={formData.diets.includes(diet.id)}
+                            onChange={() => handleDietToggle(diet.id)}
                           />
                         ))}
                       </div>
@@ -364,40 +310,6 @@ export const AiRecommendationPage: React.FC = () => {
                         { value: 'economy', label: 'До 800 ₽' },
                         { value: 'standard', label: '800-1200 ₽' },
                         { value: 'premium', label: 'От 1200 ₽' },
-                      ]}
-                    />
-
-                    <Select
-                      label="Количество дней"
-                      value={formData.days}
-                      onChange={(e) => setFormData({ ...formData, days: e.target.value })}
-                      options={[
-                        { value: '3', label: '3 дня' },
-                        { value: '5', label: '5 дней' },
-                        { value: '7', label: '7 дней' },
-                      ]}
-                    />
-
-                    <Select
-                      label="Приёмов пищи в день"
-                      value={formData.mealsPerDay}
-                      onChange={(e) => setFormData({ ...formData, mealsPerDay: e.target.value })}
-                      options={[
-                        { value: '3', label: '3 приёма' },
-                        { value: '4', label: '4 приёма' },
-                        { value: '5', label: '5 приёмов' },
-                      ]}
-                    />
-
-                    <Select
-                      label="Время доставки"
-                      value={formData.deliveryTime}
-                      onChange={(e) => setFormData({ ...formData, deliveryTime: e.target.value })}
-                      options={[
-                        { value: '', label: 'Любое' },
-                        { value: 'morning', label: 'Утро (9:00-12:00)' },
-                        { value: 'afternoon', label: 'День (12:00-16:00)' },
-                        { value: 'evening', label: 'Вечер (16:00-21:00)' },
                       ]}
                     />
                   </div>
@@ -485,43 +397,12 @@ export const AiRecommendationPage: React.FC = () => {
                     <Sparkles className="w-6 h-6" />
                   </div>
                   <div>
-                    <h2 className="text-3xl font-bold mb-2">Ваш персональный рацион готов!</h2>
-                    <p className="text-lg text-white/90">
+                    <h2 className="text-3xl font-bold mb-2 !text-white">Ваш персональный рацион готов!</h2>
+                    <p className="text-lg !text-white">
                       Мы подобрали {recommendations.length} блюда, идеально подходящих под ваши
                       цели и предпочтения
                     </p>
                   </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex flex-wrap gap-3">
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    onClick={handleAddAllToCart}
-                    disabled={cartItems.length === recommendations.length}
-                  >
-                    <ShoppingCart className="w-5 h-5 mr-2" />
-                    Добавить всё в корзину
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="lg"
-                    onClick={handleReplaceItems}
-                    className="!bg-white/10 !text-white hover:!bg-white/20"
-                  >
-                    <RefreshCw className="w-5 h-5 mr-2" />
-                    Заменить позиции
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="lg"
-                    onClick={handleSaveSelection}
-                    className="!bg-white/10 !text-white hover:!bg-white/20"
-                  >
-                    <Save className="w-5 h-5 mr-2" />
-                    Сохранить подборку
-                  </Button>
                 </div>
               </div>
 
@@ -535,23 +416,6 @@ export const AiRecommendationPage: React.FC = () => {
                     isInCart={cartItems.includes(rec.id)}
                   />
                 ))}
-              </div>
-
-              {/* Disclaimer */}
-              <div className="bg-[var(--color-warning-50)] border border-[var(--color-warning-200)] rounded-[12px] p-6">
-                <div className="flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-[var(--color-warning-600)] shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="font-semibold text-[var(--color-neutral-900)] mb-2">
-                      Важное уведомление
-                    </h3>
-                    <p className="text-sm text-[var(--color-neutral-700)] leading-relaxed">
-                      Рекомендации носят информационный характер. Перед значительными изменениями в рационе
-                      рекомендуем проконсультироваться с врачом или диетологом. Если у вас есть
-                      хронические заболевания, обязательно учитывайте медицинские рекомендации.
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           )}

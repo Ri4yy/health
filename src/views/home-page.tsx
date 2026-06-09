@@ -195,7 +195,7 @@ export const HomePage: React.FC<any> = ({
               Наши преимущества
             </h2>
             <p className="text-lg text-[var(--color-neutral-600)] max-w-2xl mx-auto">
-              Почему более 10 000 клиентов выбирают ЭкоЕда
+              Почему более 10 000 клиентов выбирают Точка Баланса
             </p>
           </div>
 

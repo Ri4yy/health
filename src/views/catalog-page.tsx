@@ -136,7 +136,7 @@ export const CatalogPage: React.FC<any> = ({ initialProducts = [], initialCatego
             <p className="text-lg text-[var(--color-neutral-600)]">
               {hasResults ? `${filteredProducts.length} товаров` : 'Ничего не найдено'}
             </p>
-          </div>
+          </div> 
 
           <div className="flex gap-8">
             {/* Filters Sidebar - Desktop */}

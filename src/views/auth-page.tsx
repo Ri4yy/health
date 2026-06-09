@@ -108,55 +108,9 @@ export const AuthPage: React.FC = () => {
       <main className="flex-grow flex items-center justify-center py-12 md:py-16">
         <div className="container">
           <div className="max-w-[1200px] mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              
-              {/* Welcome Block - Desktop */}
-              <div className="hidden lg:block">
-                <div className="sticky top-24">
-                  <div className="mb-8">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-primary-50)] rounded-full mb-6">
-                      <Sparkles className="w-4 h-4 text-[var(--color-primary-600)]" />
-                      <span className="text-sm font-medium text-[var(--color-primary-700)]">
-                        Присоединяйтесь к нам
-                      </span>
-                    </div>
-                    <h1 className="mb-6">
-                      Здоровое питание<br />начинается здесь
-                    </h1>
-                    <p className="text-lg text-[var(--color-neutral-700)] mb-8">
-                      Создайте аккаунт и получите доступ к персональным рекомендациям, 
-                      накопительной программе лояльности и эксклюзивным предложениям.
-                    </p>
-                  </div>
-
-                  <div className="space-y-4 mb-8">
-                    {[
-                      { icon: Check, text: 'Персональный план питания' },
-                      { icon: Check, text: 'Накопление бонусов за покупки' },
-                      { icon: Check, text: 'Эксклюзивные скидки и акции' },
-                      { icon: Check, text: 'История заказов и быстрое повторение' },
-                    ].map((benefit, index) => (
-                      <div key={index} className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded-full bg-[var(--color-primary-100)] flex items-center justify-center flex-shrink-0">
-                          <benefit.icon className="w-4 h-4 text-[var(--color-primary-600)]" />
-                        </div>
-                        <span className="text-[var(--color-neutral-700)]">{benefit.text}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="rounded-[16px] overflow-hidden">
-                    <img 
-                      src="https://images.unsplash.com/photo-1644704170910-a0cdf183649b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwZm9vZCUyMGJvd2wlMjB2ZWdldGFibGVzfGVufDF8fHx8MTc3NjI1NDU0NHww&ixlib=rb-4.1.0&q=80&w=1080"
-                      alt="Здоровая еда"
-                      className="w-full h-[400px] object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-
+            <div className="flex justify-center">
               {/* Auth Form */}
-              <div>
+              <div className="w-full max-w-md">
                 <div className="bg-white rounded-[16px] border border-[var(--color-neutral-200)] p-6 md:p-8">
                   
                   {/* Mode Switcher */}
@@ -183,8 +137,8 @@ export const AuthPage: React.FC = () => {
                     </button>
                   </div>
 
-                  {/* Mobile Welcome */}
-                  <div className="lg:hidden mb-6">
+                  {/* Welcome */}
+                  <div className="mb-6">
                     <h2 className="mb-2">
                       {mode === 'register' ? 'Создать аккаунт' : mode === 'phone' ? 'Вход по номеру' : 'Добро пожаловать'}
                     </h2>

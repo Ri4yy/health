@@ -82,7 +82,7 @@ export const OfferPage: React.FC = () => {
               <h1 className="mb-4">Публичная оферта</h1>
               
               <p className="text-lg text-[var(--color-neutral-600)] mb-6">
-                Настоящий документ является публичной офертой ООО «ЭкоЕда» на заключение 
+                Настоящий документ является публичной офертой ООО «Точка Баланса» на заключение 
                 договора розничной купли-продажи товаров дистанционным способом.
               </p>
 
@@ -137,7 +137,7 @@ export const OfferPage: React.FC = () => {
                       <div className="space-y-4 text-[var(--color-neutral-700)]">
                         <p>
                           1.1. Настоящая публичная оферта (далее — Оферта) является официальным предложением 
-                          ООО «ЭкоЕда» (далее — Продавец) заключить договор купли-продажи товаров дистанционным 
+                          ООО «Точка Баланса» (далее — Продавец) заключить договор купли-продажи товаров дистанционным 
                           способом (далее — Договор) на условиях, изложенных ниже.
                         </p>
                         
@@ -179,7 +179,7 @@ export const OfferPage: React.FC = () => {
                           <div className="p-4 bg-[var(--color-neutral-50)] rounded-[12px]">
                             <p className="font-semibold text-[var(--color-neutral-900)] mb-1">Продавец</p>
                             <p className="text-sm">
-                              ООО «ЭкоЕда», реализующее товары через интернет-магазин, расположенный на сайте ecoeda.ru
+                              ООО «Точка Баланса», реализующее товары через интернет-магазин, расположенный на сайте ecoeda.ru
                             </p>
                           </div>
 
@@ -531,7 +531,7 @@ export const OfferPage: React.FC = () => {
                       <div className="p-6 bg-[var(--color-neutral-50)] rounded-[12px]">
                         <div className="space-y-3">
                           <div>
-                            <h4 className="mb-2 text-[var(--color-neutral-900)]">ООО «ЭкоЕда»</h4>
+                            <h4 className="mb-2 text-[var(--color-neutral-900)]">ООО «Точка Баланса»</h4>
                           </div>
                           
                           <div className="grid md:grid-cols-2 gap-4 text-sm text-[var(--color-neutral-700)]">
