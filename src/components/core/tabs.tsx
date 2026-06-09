@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 export interface Tab {
   id: string;
   label: string;
+  icon?: React.ReactNode;
   content: React.ReactNode;
 }
 
@@ -26,12 +27,13 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, defaultTab, className = '' }) 
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-4 py-3 text-sm font-medium transition-all relative ${
+            className={`px-4 py-3 text-sm font-medium transition-all relative flex items-center gap-2 ${
               activeTab === tab.id
                 ? 'text-[var(--color-primary-600)]'
                 : 'text-[var(--color-neutral-600)] hover:text-[var(--color-neutral-900)]'
             }`}
           >
+            {tab.icon && <span className="flex-shrink-0">{tab.icon}</span>}
             {tab.label}
             {activeTab === tab.id && (
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--color-primary-500)] rounded-t-full" />

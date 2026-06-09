@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 
 export interface CheckboxProps {
   id?: string;
-  label?: string;
+  label?: React.ReactNode;
   checked?: boolean;
   defaultChecked?: boolean;
   onChange?: (checked: boolean) => void;

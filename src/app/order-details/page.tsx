@@ -1,6 +1,5 @@
-"use client";
-import { OrderDetailsPage } from '../../views/order-details-page';
+import { redirect } from 'next/navigation';
 
 export default function Page() {
-  return <OrderDetailsPage />;
+  redirect('/account');
 }
