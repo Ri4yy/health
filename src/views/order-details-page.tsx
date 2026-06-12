@@ -378,12 +378,6 @@ export const OrderDetailsPage: React.FC<OrderDetailsPageProps> = ({ initialOrder
                   <Button variant="primary" onClick={handleRepeatOrder} className="min-w-[200px]">
                     <RefreshCw className="w-4 h-4 mr-2" /> Повторить заказ
                   </Button>
-                  <Button variant="ghost" onClick={handleContactSupport}>
-                    <MessageCircle className="w-4 h-4 mr-2" /> Чат с поддержкой
-                  </Button>
-                  <Button variant="ghost" onClick={() => addToast('info', 'Загрузка чека...')}>
-                    <FileText className="w-4 h-4 mr-2" /> Скачать чек
-                  </Button>
                   {canCancelOrder && (
                     <Button variant="ghost" className="text-red-600 ml-auto" onClick={() => setShowCancelModal(true)}>
                       <XCircle className="w-4 h-4 mr-2" /> Отменить заказ
