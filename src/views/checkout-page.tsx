@@ -528,9 +528,7 @@ export const CheckoutPage: React.FC<any> = ({ initialUser, initialProfile, initi
                         disabled={isLoading}
                         options={[
                           { value: '', label: 'Выберите пункт выдачи' },
-                          { value: 'point1', label: 'ТЦ "Авеню" - ул. Ленина, 45' },
-                          { value: 'point2', label: 'ТЦ "Мега" - Московское шоссе, 12' },
-                          { value: 'point3', label: 'Офис Точка Баланса - ул. Зелёная, 7' },
+                          { value: 'point1', label: 'Офис Точка Баланса - ул. Зелёная, 7' },
                         ]}
                       />
                     </div>
