@@ -262,18 +262,6 @@ export const AuthPage: React.FC = () => {
                       {mode === 'register' ? 'Создать аккаунт' : 'Войти'}
                     </Button>
 
-                    {/* Forgot Password - Login only */}
-                    {mode === 'login' && (
-                      <div className="text-center">
-                        <a 
-                          href="#" 
-                          className="text-sm text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)] transition-colors"
-                        >
-                          Забыли пароль?
-                        </a>
-                      </div>
-                    )}
-
 
 
                     {/* Switch to Register/Login */}
@@ -305,13 +293,6 @@ export const AuthPage: React.FC = () => {
                         )}
                       </div>
                   </form>
-                </div>
-
-                {/* Trust Badge */}
-                <div className="mt-6 text-center">
-                  <p className="text-sm text-[var(--color-neutral-600)]">
-                    🔒 Ваши данные защищены и не передаются третьим лицам
-                  </p>
                 </div>
               </div>
             </div>

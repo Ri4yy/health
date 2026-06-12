@@ -113,11 +113,6 @@ export const AboutPage: React.FC = () => {
                 Мы верим, что здоровое питание — это основа качественной жизни. Наша цель —
                 помочь каждому человеку питаться правильно без стресса и временных затрат.
               </p>
-              <p className="text-lg leading-relaxed text-white/90">
-                За 1 год работы мы помогли более 1 000 клиентам улучшить качество жизни через
-                правильное питание. Каждый день готовим тысячи блюд, которые приносят пользу и
-                удовольствие.
-              </p>
             </div>
           </div>
         </section>
@@ -170,32 +165,14 @@ export const AboutPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Team */}
-        <section className="container py-12 lg:py-16">
-          <div className="max-w-3xl mx-auto text-center mb-10">
-            <h2 className="text-3xl font-bold text-[var(--color-neutral-900)] mb-4">
-              Наша команда
-            </h2>
-            <p className="text-lg text-[var(--color-neutral-700)]">
-              Профессионалы своего дела, которые создают для вас здоровое питание
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, index) => (
-              <TeamMember key={index} {...member} />
-            ))}
-          </div>
-        </section>
-
         {/* Stats */}
         <section className="bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)] py-12 lg:py-16">
           <div className="container">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {[
-                { value: '1 000+', label: 'Довольных клиентов' },
+                { value: '100+', label: 'Довольных клиентов' },
                 { value: '1 год', label: 'На рынке' },
-                { value: '10+', label: 'Блюд в меню' },
+                { value: '4+', label: 'Блюд в меню' },
                 { value: '100%', label: 'Натуральные продукты' },
               ].map((stat, index) => (
                 <div key={index} className="text-center text-white">
